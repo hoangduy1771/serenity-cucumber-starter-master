@@ -5,7 +5,5 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("https://wikipedia.org")
 public class WikipediaHomePage extends PageObject {
-    public static void main(String[] args) {
 
-    }
 }
