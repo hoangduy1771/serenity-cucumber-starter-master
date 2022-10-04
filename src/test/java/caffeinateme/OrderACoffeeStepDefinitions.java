@@ -21,7 +21,7 @@ public class OrderACoffeeStepDefinitions {
 
     @When("Buyer orders a (.*)")
     public void buyerOrdersA(String order) {
-//        customer.placesAnOrderFor(1, order);
+        customer.placesAnOrderFor(1, order);
     }
 
 

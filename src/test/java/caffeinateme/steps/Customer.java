@@ -15,4 +15,6 @@ public class Customer extends ScenarioActor {
     }
 
 
+    public void placesAnOrderFor(int i, String order) {
+    }
 }
