@@ -5,5 +5,5 @@ Feature: Order a coffee
 
   Scenario: Buyer orders a coffee
     Given Buyer has a Caffeinate-Me account
-    When Buyer orders a large cappuccino
+    When Buyer orders 1 "large cappuccino"
     Then Barry should receive the order

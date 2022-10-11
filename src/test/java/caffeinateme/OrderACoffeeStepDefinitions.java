@@ -1,6 +1,8 @@
 package caffeinateme;
 
+import caffeinateme.steps.Barista;
 import caffeinateme.steps.Customer;
+import caffeinateme.steps.Order;
 import caffeinateme.steps.UserRegistrationClient;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,15 +16,43 @@ public class OrderACoffeeStepDefinitions {
     @Steps
     Customer customer;
 
+    @Steps
+    Barista barry;
+
     @Given("Buyer has a Caffeinate-Me account")
     public void buyerHasACaffeinateMeAccount() {
         userRegistrations.registerUser(customer);
     }
 
-    @When("Buyer orders a (.*)")
-    public void buyerOrdersA(String order) {
-        customer.placesAnOrderFor(1, order);
+    OrderReceipt orderReceipt;
+    @When("Buyer orders {int} {string}")
+    public void buyerOrdersA(int quantity, String order) {
+        orderReceipt = customer.placesAnOrderFor(quantity, order);
     }
 
 
+    @Then("Barry should receive the order")
+    public void barryShouldReceiveTheOrder() {
+        assert(barry.pendingOrders()).contains(Order.matching(orderReceipt));
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
